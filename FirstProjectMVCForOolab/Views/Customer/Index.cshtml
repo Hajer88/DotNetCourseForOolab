@@ -1,0 +1,7 @@
+﻿@model FirstProjectMVCForOolab.Models.ViewModels.CustomersMoviesVM
+
+
+@foreach (var item in Model.customers)
+{
+    <h2>@Html.ActionLink(@item.Name, "Details", "Customer", new { id = @item.Id})</h2>
+}
