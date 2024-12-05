@@ -15,7 +15,20 @@ namespace FirstProjectMVCForOolab.Models
 		public DbSet<MembershipType> membershipTypes { get; set; }
 		public DbSet<Genre> genres { get; set; }
 
+	protected override void OnModelCreating(ModelBuilder modelBuilder)
+		{
+			//base.OnConfiguring(modelBuilder);
+			/*modelBuilder.Entity<Movie>()
+				.Property(c => c.Name)
+				.HasColumnName("Movie")
+				.HasMaxLength(20)
+				.IsRequired();
 
+			/*modelBuilder.Entity<Movie>()
+				.HasOne(c => c.genre)
+				.WithMany(t => t.movies)
+				.Map(m => m.MapKey("Genre"));*/
+		}
 	}
 }
 

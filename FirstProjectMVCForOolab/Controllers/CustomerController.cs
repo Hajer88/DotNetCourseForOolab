@@ -22,11 +22,8 @@ namespace FirstProjectMVCForOolab.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
-            CustomersMoviesVM cs = new CustomersMoviesVM()
-            {
-                customers = _db.customers.ToList(),
-                movies = _db.movies.ToList(),
-            };
+
+            var cs = _db.customers.ToList();
             return View(cs);
         }
         //seed data Customers
@@ -68,7 +65,7 @@ namespace FirstProjectMVCForOolab.Controllers
                 .ToList();
             return View(c);
         }
-
+        //Create NEw Customer GET
         public IActionResult Create()
         {
 
@@ -85,7 +82,7 @@ namespace FirstProjectMVCForOolab.Controllers
 
             return View();
         }
-
+        // Create new Customer POST
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create( Customer c)
@@ -106,7 +103,7 @@ namespace FirstProjectMVCForOolab.Controllers
             }
 
             _db.customers.Add(c);
-             _db.SaveChanges();
+            _db.SaveChanges();
             return RedirectToAction(nameof(Index));
 
         }
